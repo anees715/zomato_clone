@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-7 col-md-offset-1">
+			<div class="restaurant">
+				<%= image_tag(@restaurant["featured_image"], class: "img-responsive") %>
+				<div class="pull-right" style="margin-top: 10px">
+					<a class="btn btn-md btn-success"><%= @restaurant["user_rating"]["aggregate_rating"] %></a><br/>
+					<i><%= @restaurant["user_rating"]["votes"] %> votes</i>
+					</div>
+				<h2><%= @restaurant["name"] %></h2>
+				<p><%= @restaurant["location"]["locality"] %></p>
+			</div>
+		</div>
+	</div>
+</div>

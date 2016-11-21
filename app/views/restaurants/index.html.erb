@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+<h2>Total <%= @response["results_found"] %> Restaurants Found</h2>
+
+<% @restaurants.each do |restaurant| %>
+<div class="restaurant">
+	<div class="pull-right">
+<span class="btn btn-sm btn-success"><%= restaurant["restaurant"]["user_rating"]["aggregate_rating"]%></span><br/>
+<i><%= restaurant["restaurant"]["user_rating"]["votes"] %> votes</i>
+</div>
+<div class="thumb pull-left">
+	<%= image_tag(restaurant["restaurant"]["thumb"]) %>
+</div>
+<h2><%= link_to restaurant["restaurant"]["name"], restaurant_path(restaurant["restaurant"]["R"]["res_id"]) %></h2>
+<p style="color: #8f8f8f"><%= restaurant["restaurant"]["location"]["locality"] %></p>
+<p><%= restaurant["restaurant"]["location"]["address"] %></p>
+<div class="clearfix"></div>
+<table>
+	<tr>
+		<td width="100px">Cuisines:</td>
+		<td><%= restaurant["restaurant"]["cuisines"] %></td>
+	</tr>
+	<tr>
+	<td width="100px">Cost for two:</td>
+	<td><%= restaurant["restaurant"]["average_cost_for_two"] %></td>
+</tr>
+	<tr>
+	<td width="100px">User Rating:</td>
+	<td><%= restaurant["restaurant"]["user_rating"]["rating_text"] %></td>
+</tr>
+
+</table>
+
+
+</div>
+<% end %>
+</div>
+</div>
+</div>

@@ -1,0 +1,29 @@
+<section class="cover">
+<div class="overlay">
+<div class="container">
+<div class="row" style="margin-top:10%">
+
+<%= image_tag("zomato_logo.png", height: '120', width: '120',class: "img-responsive center-block") %>
+<h3 class="text-center" style="color:#ffffff; margin-top:20px; margin-bottom:40px">Find the best restaurants, cafés, and bars in Bangalore</h3>
+<%= form_tag restaurants_path, method: :get do %>
+<div class="row">
+<div class="col-md-2 col-md-offset-3">
+	    <div class="form-group">
+<%= select_tag(:location, options_for_select([ "Jayanagar", "Malleswaram", "Hebbal", "IndiraNagar", "Marathahalli", "Koramangala", "Banashankari" ]), { prompt: "Select Location", class: "selectpicker show-menu-arrow", "data-width": "100%", "data-live-search": true, "data-size": "5", "data-dropup-auto": "false" }) %>
+</div>
+</div>
+	<div class="col-md-3">
+		<div class="form-group">
+	<%= select_tag(:category, options_for_select(@categories), { prompt: "Select Category", class: "selectpicker show-menu-arrow", "data-dropup-auto": "false", "data-size": "5", "data-width": "100%" }) %>
+</div>
+</div>
+<div class="col-md-1">
+	<%= submit_tag "Search", class: "btn btn-danger" %>
+</div>
+</div>
+	<% end %>
+
+</div>
+</div>
+</div>
+</section>
